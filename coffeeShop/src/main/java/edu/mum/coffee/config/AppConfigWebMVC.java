@@ -35,7 +35,8 @@ public class AppConfigWebMVC extends WebMvcConfigurerAdapter {
         FlowHandlerAdapter handlerAdapter = new FlowHandlerAdapter();
         handlerAdapter.setFlowExecutor(this.webFlowConfig.flowExecutor());
         handlerAdapter.setSaveOutputToFlashScopeOnRedirect(true);
-        return handlerAdapter;    }
+        return handlerAdapter;    
+        }
 
 
 	@Bean

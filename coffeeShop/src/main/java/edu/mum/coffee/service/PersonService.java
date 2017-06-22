@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+//import com.packtpub.springmvc.chocolatestore.model.Customer;
+
 import edu.mum.coffee.domain.Person;
 import edu.mum.coffee.repository.PersonRepository;
 
@@ -31,5 +33,14 @@ public class PersonService {
 	public void removePerson(Person person) {
 		personRepository.delete(person);
 	}
+	
+//	public Person loginCustomer(String userId, String password) {
+//		Long x = Long.valueOf(userId);
+//		Person person = this.findById(x);
+//		if (person != null && person.getPassword().equals(password)) {
+//			return person;
+//		}
+//		return null;
+//	}
 
 }

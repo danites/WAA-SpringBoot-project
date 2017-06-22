@@ -15,7 +15,8 @@ public class clientSide {
 
     public static void main(String args[]) {
         RestTemplate restTemplate = new RestTemplate();
-        ArrayList<Product> product = restTemplate.getForObject("http://localhost:8080/product", ArrayList.class);
+        @SuppressWarnings("unchecked")
+		ArrayList<Product> product = restTemplate.getForObject("http://localhost:8090/product", ArrayList.class);
         log.info(product.toString());
     }
     

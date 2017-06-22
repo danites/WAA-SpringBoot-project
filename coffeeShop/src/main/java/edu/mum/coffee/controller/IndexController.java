@@ -21,7 +21,7 @@ public class IndexController {
 	public String homePage(Model model) {
 		
 		//to consume the WebService exposed Service methods		
-		List<Product> products = new RestTemplate().getForObject("http://localhost:8080/products", ArrayList.class);
+		List<Product> products = new RestTemplate().getForObject("http://localhost:8090/products", ArrayList.class);
 		model.addAttribute("products", products);			
 		
 //		model.addAttribute("products", productService.getAllProduct());

@@ -10,7 +10,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
 
-import org.springframework.stereotype.Component;
+//import org.springframework.stereotype.Component;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -23,10 +23,15 @@ public class Person implements Serializable {
 	private String firstName;
 	private String lastName;
 	private String email;
+	
+	
+
 	@OneToOne(cascade = CascadeType.ALL)
 	private Address address;
 	private String phone;
 	private boolean enable;
+//	private String username;
+//	private String password;
 
 	public long getId() {
 		return id;
@@ -79,5 +84,7 @@ public class Person implements Serializable {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+	
+
 
 }

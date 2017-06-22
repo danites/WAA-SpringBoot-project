@@ -33,15 +33,6 @@ public class OrderController extends WebMvcConfigurerAdapter{
 	@Autowired
 	private OrderService orderService;
 	
-//	@PostMapping("/home")
-//	public String homePage(){
-//		return "home";
-//	}
-//	@GetMapping("/home")
-//	public String home(){
-//		return "home";
-//	}
-	
 	public Order createOrder(){
 		Order order=new Order();
 		Person person=new Person();
@@ -54,7 +45,7 @@ public class OrderController extends WebMvcConfigurerAdapter{
 	
 	public Orderline createOrderLine(Order order){
 		
-		System.out.println("sewlesew"+order.getPerson().getFirstName());
+		//System.out.println("daniel"+order.getPerson().getFirstName());
 		Product product=new Product();
 		order.setOrderDate(new Date());
 	Order ord=new Order();

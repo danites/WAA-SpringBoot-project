@@ -9,19 +9,18 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+//import org.springframework.web.bind.annotation.RequestMethod;
 
 import edu.mum.coffee.domain.Person;
-import edu.mum.coffee.domain.Product;
+//import edu.mum.coffee.domain.Product;
 import edu.mum.coffee.service.OrderService;
 import edu.mum.coffee.service.PersonService;
-import edu.mum.coffee.service.ProductService;
+
 
 @Controller
 public class HomeController {
 	
-	@Autowired
-	private ProductService productService;
+
 	
 	@Autowired
 	private PersonService personService;
@@ -29,101 +28,9 @@ public class HomeController {
 	@Autowired
 	private OrderService orderService;
 	
-	///////////////////////product management//////////////////////////////
-	@GetMapping("/products/list")
-	public String getAllProducts(Model model) {
-		model.addAttribute("products",productService.getAllProduct());	
-		return "productList";
-	}
-	@GetMapping("/products/manage")
-	public String ManageProducts() {		
-		return "productManagement";
-	}
-	
-	@GetMapping("/product/create")
-	public String createProduct() {		
-		return "productAdd";
-	}
-	
-	@PostMapping("/product/create")
-	public String addProduct(Product product) {
-		productService.save(product);
-		if(product.getProductName()!=null){
-		return "productAddSuccess";
-		}
-		
-		return "errorpage";
-		
-	}
-	
-	@GetMapping("/product/remove")
-	public String removeProduct() {	
-		
-		return "productRemove";
-	}
-	
-	@PostMapping("/product/remove")
-	public String DeleteProduct(int id, Model model) {        
-		Product product=productService.getProduct(id);
-		model.addAttribute("product",product);
-		productService.delete(product);
-		return "removalSucess";
-	}
-	
-	////////////////////////////end of product management///////////////////////////
-	
-		////////////customer////////////////////
 	
 	
-	
-	
-
-	@GetMapping("/customers/manage")
-	public String manageCustomers(Product product) {	
-		
-		return "customerManagement";
-	}
-	
-	@GetMapping("/customer/profile")
-	public String customerProfile(Product product) {	
-		
-		return "customerProfileAdd";
-	}
-	
-	@PostMapping("/customer/add/profile")
-	public String AddCustomer(Person person,Model model) {			
-		personService.savePerson(person);
-		model.addAttribute("person", person);
-		return "customerAddSuccess";
-	}	
-	
-	@GetMapping("/customers/list")
-	public String customersList() {	
-		
-		return "customersList";
-	}
-	
-	//apply flash attributes to store customers data for redirect/ //ajax
-	@PostMapping("/cutomers/list")
-	public String getcustomerByEmail(String email,Model model) {	
-		model.addAttribute("cust",personService.findByEmail(email));
-		return "customerData";
-	}
-	
-
-//	@ModelAttribute("customer")
-//	public Person getPerson(){
-//		return new Person();
-//	}
-	
-	
-	
-	
-	
-	/////////////////////////////////end of Customer management/////////////
-	
-	
-	/////////////////////// order management//////////////////////////////
+	// order management//
 	
 
 	@GetMapping("/orders/manage")

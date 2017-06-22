@@ -22,6 +22,7 @@ public class UserAuthenticationSuccessHandler implements AuthenticationSuccessHa
 	public void onAuthenticationSuccess(HttpServletRequest arg0, HttpServletResponse arg1, Authentication authentication)
 			throws IOException, ServletException {
 		
+		@SuppressWarnings("unchecked")
 		Collection<GrantedAuthority> authorities = (Collection<GrantedAuthority>) authentication.getAuthorities();
 		authorities.forEach(authority -> {
 			if(authority.getAuthority().equals("ROLE_USER")) {
